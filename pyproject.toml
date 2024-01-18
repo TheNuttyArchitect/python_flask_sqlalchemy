@@ -1,0 +1,19 @@
+[project]
+name="sqlalchemy_tutorial"
+version = "1.0.0"
+description = "Tutorial app for sqlalchemy"
+dependencies = [
+    "flask",""
+]
+
+[build-system]
+requires = ["flit-core<4"]
+build-backend = "flit_core.buildapi"
+
+
+[tool.pytest.ini_options]
+testspaths=["tests"]
+
+[tool.coverage.run]
+branch=true
+source=["sqlalchemy_tutorial"]
