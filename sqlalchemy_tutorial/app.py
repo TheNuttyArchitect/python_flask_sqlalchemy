@@ -16,7 +16,8 @@ def get_users():
     users = user.User.get_all()
     results = []
     for u in users:
-        results.append({'id': u.id, 'username': u.username, 'email': u.email})
+        # results.append({'id': u.id, 'username': u.username, 'email': u.email})
+        results.append(u.to_dict())
 
     return jsonify(results)
 

@@ -16,5 +16,13 @@ class User(db.Model):
         return '<User %r>' % self.username
 
 
+    def to_dict(self) -> dict:
+        return {
+            'id': self.id,
+            'username': self.username,
+            'email': self.email
+        }
+
+
     def get_all():
         return User.query.all()
