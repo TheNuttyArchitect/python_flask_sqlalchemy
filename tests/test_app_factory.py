@@ -1,4 +1,4 @@
-from sqlalchemy_tutorial.app_factory import create_app
+from src.app_factory import create_app
 
 
 def test_conf():
