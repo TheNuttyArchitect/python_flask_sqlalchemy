@@ -1,7 +1,7 @@
 from .user_repository import UserRepository
 from src.models.user_model import UserModel
 from src.services.user import User
-from ...db import db
+from db import db
 
 
 class UserRepositoryImpl(UserRepository):
