@@ -7,7 +7,7 @@
             "module":"flask",
             "env":
             {
-                "FLASK_APP":"sqlalchemy_tutorial",
+                "FLASK_APP":"./app.py",
                 "FLASK_DEBUG":"1"
             },
             "args":[
