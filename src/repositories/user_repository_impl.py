@@ -27,8 +27,9 @@ class UserRepositoryImpl(UserRepository):
 
         userModel.map_fields(user)
 
+        # db.session.add(userModel)
         # db.session.flush()
-        db.commit()
+        db.session.commit()
         
         return userModel
     
@@ -36,7 +37,7 @@ class UserRepositoryImpl(UserRepository):
     def delete(self, id: int) -> None:
         userModel = self.__get_model_by_id(id)
         db.session.delete(userModel)
-        db.commit()
+        db.session.commit()
 
         return None;
 

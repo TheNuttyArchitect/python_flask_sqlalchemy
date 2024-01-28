@@ -28,8 +28,11 @@ def get(id:str, user_service: UserService = Provide[DI.userService]):
 
 @api.route('/', methods=('POST',))
 @inject
-def create(user: User, user_service: UserService = Provide[DI.userService]):
+def create(user_service: UserService = Provide[DI.userService]):
     try:
+        post_data:dict = request.get_json()
+        user = User(post_data)
+
         createdUser: dict = user_service.create(user)
 
         if not(createdUser):
@@ -42,8 +45,11 @@ def create(user: User, user_service: UserService = Provide[DI.userService]):
 
 @api.route('/', methods=('PUT',))
 @inject
-def put(user: User, user_service: UserService = Provide[DI.userService]):
+def put(user_service: UserService = Provide[DI.userService]):
     try:
+        put_data = request.get_json()
+        user = User(put_data)
+
         updatedUser: dict = user_service.update(user)
 
         if not(updatedUser):
@@ -51,7 +57,7 @@ def put(user: User, user_service: UserService = Provide[DI.userService]):
         
         return jsonify(updatedUser), 200
     except Exception as e:
-        return jsonify({"message": "Failed to update user", "details": e}), 500
+        return jsonify({"message": "Failed to update user", "details": e.args.__doc__}), 500
 
 
 @api.route('/<id>', methods=('DELETE',))

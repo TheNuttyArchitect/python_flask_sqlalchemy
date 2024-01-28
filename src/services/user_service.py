@@ -13,7 +13,7 @@ class UserService:
         user: User = self._user_repository.find(id)
 
         if user:
-            return user.to_dict
+            return user.to_dict()
         
         return None
     

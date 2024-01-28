@@ -11,7 +11,8 @@ class UserModel(db.Model, User):
 
     def __init__(self, user: User) -> None:
         super().__init__()
-        self.id = user.id
+        if hasattr(user, 'id'):
+            self.id = user.id
         self.map_fields(user)
 
 
